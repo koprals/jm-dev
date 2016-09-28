@@ -1,0 +1,1 @@
+<?php echo $this->requestAction("/Template/HeaderMenu/$parent_code",array("return"))?>

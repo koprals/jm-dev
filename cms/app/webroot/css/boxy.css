@@ -1,0 +1,92 @@
+.boxy-wrapper { position: absolute; }
+.boxy-wrapper.fixed { position: fixed; }
+
+  /* Modal */
+  
+  .boxy-modal-blackout { position: absolute; background-color: black; left: 0; top: 0; }
+  
+  /* Border */
+
+  .boxy-wrapper {
+	empty-cells: show;
+  }
+	.boxy-wrapper .top-left,
+	.boxy-wrapper .top-right,
+	.boxy-wrapper .bottom-right,
+	.boxy-wrapper .bottom-left { width: 10px; height: 10px; padding: 0 }
+	
+	/*.boxy-wrapper .top-left { background: url('../img/boxy-nw.png'); }
+	.boxy-wrapper .top-right { background: url('../img/boxy-ne.png'); }
+	.boxy-wrapper .bottom-right { background: url('../img/boxy-se.png'); }
+	.boxy-wrapper .bottom-left { background: url('../img/boxy-sw.png'); }
+	
+	.boxy-wrapper .top-left { #background: none; #filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/img/boxy-nw.png'); }
+	.boxy-wrapper .top-right { #background: none; #filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/img/boxy-ne.png'); }
+	.boxy-wrapper .bottom-right { #background: none; #filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/img/boxy-se.png'); }
+	.boxy-wrapper .bottom-left { #background: none; #filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/img/boxy-sw.png'); }
+	
+	.boxy-wrapper .top,
+	.boxy-wrapper .bottom { height: 10px; background-color: black; opacity: 0.6; filter: alpha(opacity=60); padding: 0 }
+	
+	.boxy-wrapper .left,
+	.boxy-wrapper .right { width: 10px; background-color: black; opacity: 0.6; filter: alpha(opacity=60); padding: 0 }
+	
+	/* Title bar */
+	
+	.boxy-wrapper .title-bar {
+		background: #5c9ccc url(../img/bgtab.jpg) 50% 50% repeat-x;
+		-webkit-border-radius:3px;
+		-moz-border-radius:3px;
+		border-radius:3px;
+		border:1px solid #4297d7;
+		padding-top:5px;
+		padding-left:10px;
+		margin:2px;
+		position: relative;
+		height:20px;
+		
+	}
+	  .boxy-wrapper .title-bar.dragging { cursor: move; }
+	.boxy-wrapper .title-bar h2 {
+		font:14px Arial, Helvetica, sans-serif;
+		color:#000000;
+		font-weight:bold;
+		letter-spacing:1px;
+		text-shadow: 1px 1px 1px #ffffff,1px 1px 1px #ffffff;
+		margin:0;
+		padding:0;
+	}
+	    .boxy-wrapper .title-bar .close { color: white; position: absolute; top: 6px; right: 6px; font-size: 90%; line-height: 1; }
+		
+	/* Content Region */
+	
+	.boxy-inner {
+		background-color: white;
+		padding: 0;
+		font:12px Arial, Helvetica, sans-serif;
+		color:#000000;
+		-webkit-border-radius:3px;
+		-moz-border-radius:3px;
+		border-radius:3px;
+	}
+	.boxy-content { padding: 15px; }
+	
+	/* Question Boxes */
+
+    .boxy-wrapper .question { width: 350px; min-height: 80px; }
+    .boxy-wrapper .answers { text-align: right; }
+	.boxy-wrapper .answers input {
+		font:bold 12px Arial, Helvetica, sans-serif;
+		color:#333333;
+		width:auto;
+		height:auto;
+		padding:2px 15px;
+		margin:0 0 0 10px;
+		cursor:pointer;
+		border:1px solid #ffaa22;
+		background: #ffe961; /* for non-css3 browsers */
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe961', endColorstr='#ffad25'); /* for IE */
+		background: -webkit-gradient(linear, left top, left bottom, from(#ffe961), to(#ffad25)); /* for webkit browsers */
+		background: -moz-linear-gradient(top,  #ffe961,  #ffad25); /* for firefox 3.6+ */
+		text-shadow: 1px 1px 1px #ffffff,1px 1px 1px #ffffff; /*--shadow text*/
+	}

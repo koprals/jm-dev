@@ -1,0 +1,20 @@
+#beacon{font-family: Verdana;font-size: 11px;line-height: 110%;height: 20px;padding: 3px 1px 1px 0; border:0px solid black; width:50px;}
+#beacon ul, #beacon li{margin: 0;padding: 0;list-style: none;}
+#beacon a{color: #003399;text-decoration: none;}
+
+
+#mainNav2{float: right;position: relative;top: -2px;font-size:12px; margin-right:10px;}
+#mainNav2 li{display: block;float: left;margin-right: -1px;padding: 1px;}
+#mainNav2 li.show, #mainNav2 li.current{border: 1px solid #694b04;border-bottom: none;padding: 0;position: relative;z-index: 1;}
+#mainNav2 a{display: block;padding: 7px 3px 3px 3px;outline-style: none;}
+#mainNav2 li.current a{color: #996699;}
+#mainNav2 li.drop a{}
+#mainNav2 a:hover, #mainNav2 a:active, #mainNav2 li.show a{color: #F87102;text-decoration: underline;}
+#mainNav2 li.show a{background-color: #FFFFFF;border-bottom: 1px solid #FFFFFF;}
+#mainNav2 .submenu{position: relative;z-index: -1;font-size:11px;}
+#mainNav2 ul{background: #FFFFFF;border: 1px solid #694b04;display: none;float: none;position: absolute;top: -1px;left: -1px; width:212px;}
+#mainNav2 li li{background: none;display: inline;float: none;margin: 0;padding: 0;}
+#mainNav2 li li a{background: none !important;border: none !important;color: #003399 !important;display: block;padding: 6px 12px 5px 8px !important;text-decoration: none !important;white-space: nowrap;}
+#mainNav2 li li a:hover{background-color: #cde99f !important;}
+#mainNav2 .myalibaba{font-weight: bold;}
+#mainNav2 .navmask{border:none;display:none;filter:mask();height:0;left:0;position:absolute;top:0;width:0;z-index:-1}

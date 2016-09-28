@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/toi/!svn/ver/8/frontend/app/vendors/swift/Swift/Connection
+END
+NativeMail.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/toi/!svn/ver/8/frontend/app/vendors/swift/Swift/Connection/NativeMail.php
+END
+Multi.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/toi/!svn/ver/8/frontend/app/vendors/swift/Swift/Connection/Multi.php
+END
+Rotator.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/toi/!svn/ver/8/frontend/app/vendors/swift/Swift/Connection/Rotator.php
+END
+Sendmail.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/toi/!svn/ver/8/frontend/app/vendors/swift/Swift/Connection/Sendmail.php
+END
+SMTP.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/toi/!svn/ver/8/frontend/app/vendors/swift/Swift/Connection/SMTP.php
+END

@@ -1,0 +1,1 @@
+<?php echo $this->requestAction("/Template/SideLeft/$parent_code/$child_code",array("return"))?>
