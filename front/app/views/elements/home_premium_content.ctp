@@ -1,0 +1,1 @@
+<?php echo $this->requestAction("/Template/HomePremiumContent",array("return"))?>

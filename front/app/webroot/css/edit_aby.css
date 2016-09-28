@@ -1,0 +1,286 @@
+@charset "utf-8";
+.back3{background:url(../img/back_form3.gif) repeat left top;}
+
+a.logo{
+	float:left;
+	width:251px;
+	height:auto;
+	background-image:none;
+}
+.red2{
+	color:#B40303;
+}
+.grey2
+{
+	color:#676767;
+}
+.product
+{
+	width:291.5px; 
+	border:1px solid black;
+	float:left;
+	display:block;
+	border-left:1px solid #cccccc;
+	border-right:1px solid #cccccc;
+	border-bottom:1px solid #cccccc;
+	border-top:1px solid #cccccc;
+	-webkit-border-radius:2px;
+	-moz-border-radius:2px;
+	border-radius:2px;
+	-webkit-box-shadow: 0px 2px 2px 2px #8a8a8a;
+    box-shadow: 0px 2px 2px 2px #8a8a8a;
+   	-moz-box-shadow: 0px 0px 2px 0px #8a8a8a;
+	margin-bottom:16px;
+	position:relative;
+	
+}
+
+.foto_upload
+{
+	width:140px;
+	height:170px;
+	margin-right:15px;
+	border:0px solid #b0b0b0;
+	float:left;
+	display:block;
+	margin-bottom:80px;
+}
+.foto_upload_image
+{
+	width:140px;
+	height:140px;
+	border:1px solid #b0b0b0;
+	float:left;
+	display:block;
+	text-align:center;
+	background-color:#FFF;
+	padding:2px;
+}
+
+.gambar
+{
+	width:96.5%;
+	margin:3px auto;
+	border:0px solid black;
+	background:#ffffff;
+	height:153px;
+}
+.descthumb
+{
+	width:97%;
+	margin:3px auto;
+	border:0px solid black;
+	position:relative;
+}
+
+.product_tiny
+{
+	width:141px;
+	height:170px;
+	margin-right:10px;
+	border:spx solid black;
+	float:left;
+	display:block;
+	border-left:1px solid #cccccc;
+	border-right:1px solid #cccccc;
+	border-bottom:1px solid #cccccc;
+	border-top:1px solid #cccccc;
+	-webkit-border-radius:2px;
+	-moz-border-radius:2px;
+	border-radius:2px;
+}
+
+.gambar_tiny
+{
+	width:90%;
+	margin:6px auto;
+	border:0px solid black;
+	background:#fff;
+	height:85px;
+}
+
+label
+{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	font-weight:normal;
+	color:#FFF;
+}
+.descthumb_tiny
+{
+	width:90%;
+	margin:6px auto;
+	border:0px solid black;
+	position:relative;
+}
+.reounded_friend
+{
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+	-khtml-border-radius:5px;
+	border:1px solid white;
+	background-color:#5e5e5e;
+	overflow:auto;
+	height:200px;
+}
+.reounded_error
+{
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+	-khtml-border-radius:5px;
+	border:1px solid red;
+	background-color:#5e5e5e;
+}
+.bandroll
+{
+	border:0px solid black;
+	width:175px;
+	height:61px;
+	float:left;
+	position:absolute;
+	display:block;
+	background-image:url(../img/price.jpg);
+	margin-left:2px;
+	border:0px solid black;
+}
+.shadowgambar
+{
+	width:99.7%; 
+	border:1px solid black;
+	float:left;
+	display:block;
+	border-left:1px solid #cccccc;
+	border-right:1px solid #cccccc;
+	border-bottom:1px solid #cccccc;
+	border-top:1px solid #cccccc;
+	-webkit-border-radius:2px;
+	-moz-border-radius:2px;
+	border-radius:2px;
+	-webkit-box-shadow: 0px 2px 2px 2px #8a8a8a;
+    box-shadow: 0px 2px 2px 2px #8a8a8a;
+   	-moz-box-shadow: 0px 0px 2px 0px #8a8a8a;
+	margin-top:49px;
+	position:relative;
+}
+.tengahgambar{
+	width:96%;
+	margin:17px auto 10px auto;
+	float:none;
+}
+.wraptocenter_gambar {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+	height:382px;
+	/*width:607px;
+	background-color:#ffffff;
+	border:0px solid #616060;
+	position:relative;*/
+}
+
+/*---PREMIUM---*/
+.product_premium
+{
+	background:#dceefd;
+	width:291.5px; 
+	float:left;
+	display:block;
+	border-left:1px solid #9eccf2;
+	border-right:1px solid #9eccf2;
+	border-bottom:1px solid #9eccf2;
+	border-top:1px solid #9eccf2;
+	-webkit-border-radius:2px;
+	-moz-border-radius:2px;
+	border-radius:2px;
+	-webkit-box-shadow: 0px 1px 8px 0px #9eccf2;
+    box-shadow: 0px 1px 8px 0px #9eccf2;
+   	-moz-box-shadow: 0px 1px 8px 0px #9eccf2;
+	margin-bottom:16px;
+	position:relative;	
+}
+.gambar_premium
+{
+	background:#dceefd;
+	width:96.5%;
+	margin:3px auto;
+	border:0px solid black;
+	height:153px;
+}
+.descrip_premium
+{
+	background:#dceefd;
+	border:0px solid black;
+	position:absolute;
+	bottom:-1px;
+	width:100%;
+	display:block;
+	height:22px; 
+	overflow:hidden; 
+	color:#000;
+}
+.garis_premium{height:1px;width:100%;float:left;background:#c5c5c5;border-bottom:1px solid #ffffff;margin-bottom:40px;box-shadow:0px 4px 18px 2px #afafaf;}
+a.pasang_iklan{
+	float:right;
+	font:bold 14px Arial, Helvetica, sans-serif; /*-- font sebelumnya 'Sansita One', cursive, --*/
+	color:#ffffff;
+	text-align:center;
+	text-decoration:none;
+	border:1px solid #727272;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c50202', endColorstr='#d80000'); /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#c50202), to(#d80000)); /* for webkit browsers */
+	background: -moz-linear-gradient(top, #c50202, #d80000); /* for firefox 3.6+ */
+	width:auto;
+	height:26px;
+	border:none;
+	cursor:pointer;
+	padding:10px 20px 0px 20px;
+	text-shadow: 0px 1px 0px #500000; /*--shadow text*/
+}
+a.pasang_iklan:hover{color:#500000;text-shadow:none; /*--shadow text*/}
+.content_premium{float:left;width:52px;height:38px;position:absolute;margin:-10px 0px 0 -10px; background:url(../img/hot_content.png) no-repeat right; left:0;}
+.product_new
+{
+	width:141px;
+	height:170px;
+	margin-right:10px;
+	border:1px solid #e7d82f;
+	float:left;
+	display:block;
+	background:#faffd1;
+	-webkit-border-radius:2px;
+	-moz-border-radius:2px;
+	border-radius:2px;
+	-webkit-box-shadow: 0px 1px 8px 0px #e7d82f;
+    box-shadow: 0px 1px 8px 0px #e7d82f;
+   	-moz-box-shadow: 0px 1px 8px 0px #e7d82f;
+}
+.product_hot
+{
+	width:291.5px; 
+	float:left;
+	display:block;
+	background:#faffd1;
+	-webkit-border-radius:2px;
+	-moz-border-radius:2px;
+	border-radius:2px;
+	-webkit-box-shadow: 0px 1px 8px 0px #e7d82f;
+    box-shadow: 0px 1px 8px 0px #e7d82f;
+   	-moz-box-shadow: 0px 1px 8px 0px #e7d82f;
+	margin-bottom:16px;
+	position:relative;	
+}
+.gambar_hot
+{
+	background:#faffd1;
+	width:96.5%;
+	margin:3px auto;
+	border:0px solid black;
+	height:153px;
+}
+
+.header_premium{float:left;width:98%;height:40px; display:block;margin:10px 5px 0px 0px;border:0px solid yellow;}
+.header_premium .red_carpet{background:#bb0505;width:100%;height:30px;float:left;font:bold 14px Arial, Helvetica, sans-serif;text-transform:uppercase;color:#ffffff;text-shadow: 0px 1px 0px #610000;line-height:30px;padding-left:10px;box-shadow:1px 1px 3px #3d0001;}
+.header_premium .sudut_cp{background:url(../img/sudut.png) no-repeat left bottom;width:5px;height:12px;margin-top:30px;border:0px solid blue;}
+/*---END PREMIUM---*/

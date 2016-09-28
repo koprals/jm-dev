@@ -1,0 +1,64 @@
+@charset "utf-8";
+/* CSS Document */
+.divcontainer {width: 805px;}
+
+ul.tabs {
+	margin: 0;
+	padding: 0;
+	float: left;
+	list-style: none;
+	height: 25px;
+	border-bottom: 1px solid #d3c8aa;
+	border-left: 0px solid #d3c8aa;
+	width: 100%;
+}
+
+ul.tabs li {
+	float: left;
+	margin: 0;
+	padding: 0;
+	height: 24px;
+	line-height: 24px;
+	border: 1px solid #d3c8aa;
+	/*border-left: none;*/
+	margin-bottom: -1px;
+	overflow: hidden;
+	position: relative;
+	margin-right:5px;
+}
+
+ul.tabs li a {
+	text-decoration: none;
+	display: block;
+	font:12px Arial, Helvetica, sans-serif;
+	color:#000000;
+	padding: 4px 20px;
+	border: 1px solid #fff;
+	outline: none;
+	height: 100%;
+	background-color:#F1E8CB;
+}
+ul.tabs li a:hover {
+	background: #ccc;
+}	
+html ul.tabs li.active, html ul.tabs li.active a  {
+	background: #fff;
+	border-bottom: 1px solid #fff;
+	background:url(../img/bg_panel.jpg) repeat-x;
+	font-weight:bold;
+}
+.tab_container {
+	border: 1px solid #d3c8aa;
+	border-top: none;
+	clear: both;
+	float: left; 
+	width: 793px;
+	background: #fff;
+	background:url(../img/bg_panel_rotate.jpg) repeat-x;
+	background-position:bottom;
+	padding:10px 0 10px 10px;
+}
+.tab_content {
+	min-height:40px;
+}
+

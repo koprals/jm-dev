@@ -1,0 +1,194 @@
+@charset "utf-8";
+.back3{background:url(../img/back_form3.gif) repeat left top;}
+
+a.logo{
+	float:left;
+	width:251px;
+	height:auto;
+	background-image:none;
+}
+.red2{
+	color:#B40303;
+}
+.grey2
+{
+	color:#676767;
+}
+.product
+{
+	width:291.5px; 
+	border:1px solid black;
+	float:left;
+	display:block;
+	border-left:1px solid #cccccc;
+	border-right:1px solid #cccccc;
+	border-bottom:1px solid #cccccc;
+	border-top:1px solid #cccccc;
+	-webkit-border-radius:2px;
+	-moz-border-radius:2px;
+	border-radius:2px;
+	-webkit-box-shadow: 0px 2px 2px 2px #8a8a8a;
+    box-shadow: 0px 2px 2px 2px #8a8a8a;
+   	-moz-box-shadow: 0px 0px 2px 0px #8a8a8a;
+	margin-bottom:16px;
+	
+}
+
+.foto_upload
+{
+	width:140px;
+	height:170px;
+	margin-right:15px;
+	border:0px solid #b0b0b0;
+	float:left;
+	display:block;
+	margin-bottom:80px;
+}
+.foto_upload_image
+{
+	width:140px;
+	height:140px;
+	border:1px solid #b0b0b0;
+	float:left;
+	display:block;
+	text-align:center;
+	background-color:#FFF;
+	padding:2px;
+}
+
+.gambar
+{
+	width:96.5%;
+	margin:3px auto;
+	border:0px solid black;
+	background:#ffffff;
+	height:153px;
+}
+.bulet_merah
+{
+	position:absolute;
+	margin:-150px 0px 0px 110px;
+	display:none;
+}
+/*--- IE 7 ---*/
+*:first-child+html .bulet_merah
+{
+	position:absolute;
+	margin:-130px 0px 0px -180px;
+	display:none;
+}
+/*--- END IE 7 ---*/
+.descthumb
+{
+	width:97%;
+	margin:3px auto;
+	border:0px solid black;
+	position:relative;
+}
+
+.product_tiny
+{
+	width:141px;
+	height:170px;
+	margin-right:10px;
+	border:spx solid black;
+	float:left;
+	display:block;
+	border-left:1px solid #cccccc;
+	border-right:1px solid #cccccc;
+	border-bottom:1px solid #cccccc;
+	border-top:1px solid #cccccc;
+	-webkit-border-radius:2px;
+	-moz-border-radius:2px;
+	border-radius:2px;
+}
+
+.gambar_tiny
+{
+	width:90%;
+	margin:6px auto;
+	border:0px solid black;
+	background:#fff;
+	height:85px;
+}
+
+label
+{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	font-weight:normal;
+	color:#FFF;
+}
+.descthumb_tiny
+{
+	width:90%;
+	margin:6px auto;
+	border:0px solid black;
+	position:relative;
+}
+.reounded_friend
+{
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+	-khtml-border-radius:5px;
+	border:1px solid white;
+	background-color:#5e5e5e;
+	overflow:auto;
+	height:200px;
+}
+.reounded_error
+{
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+	-khtml-border-radius:5px;
+	border:1px solid red;
+	background-color:#5e5e5e;
+}
+.bandroll
+{
+	border:0px solid black;
+	width:175px;
+	height:61px;
+	float:left;
+	position:absolute;
+	display:block;
+	background-image:url(../img/price.jpg);
+	margin-left:2px;
+	border:0px solid black;
+}
+.shadowgambar
+{
+	width:99.7%; 
+	border:1px solid black;
+	float:left;
+	display:block;
+	border-left:1px solid #cccccc;
+	border-right:1px solid #cccccc;
+	border-bottom:1px solid #cccccc;
+	border-top:1px solid #cccccc;
+	-webkit-border-radius:2px;
+	-moz-border-radius:2px;
+	border-radius:2px;
+	-webkit-box-shadow: 0px 2px 2px 2px #8a8a8a;
+    box-shadow: 0px 2px 2px 2px #8a8a8a;
+   	-moz-box-shadow: 0px 0px 2px 0px #8a8a8a;
+	margin-top:49px;
+	position:relative;
+}
+.tengahgambar{
+	width:96%;
+	margin:17px auto 10px auto;
+	float:none;
+}
+.wraptocenter_gambar {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+	height:382px;
+	/*width:607px;
+	background-color:#ffffff;
+	border:0px solid #616060;
+	position:relative;*/
+}
