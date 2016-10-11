@@ -11,6 +11,7 @@ $(document).ready(function(){
 		$('.tipS').tipsy({gravity: 's',fade: true});
 	});
 
+
   /**DATE PICKER**/
 	$( "#SearchStartDate" ).datepicker({
 		dateFormat:"yy-mm-dd",
@@ -130,6 +131,7 @@ function ClearSearchAdvance()
 	             <li>
 	                  <a href="javascript:void(0)"><?php echo $ControllerName?></a>
 	             </li>
+	             
 	             <li class="current">
 	                  <a href="javascript:void(0)">Report Data Valid</a>
 	             </li>

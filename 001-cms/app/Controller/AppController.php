@@ -28,7 +28,7 @@ class AppController extends Controller
 		$settings			=	$this->Setting->find('first');
 		$this->settings		=	$settings['Setting'];
 		$this->set('settings',		$settings['Setting']);
-		$this->set("title_for_layout", $settings['Setting']["cms_title"]);
+		$this->set("title_for_layout", $settings['Setting']["site_title "]);
 
 		//GET CONTROLLER AND ACTION NAME
 		$controller			=	strtolower($this->params["controller"]);

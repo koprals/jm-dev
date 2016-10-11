@@ -98,7 +98,7 @@ echo $this->fetch('script');
 	<div id="leftSide">
 		<div class="logo" style="text-align:center;">
 			<a href="javascript:void(0)">
-				<img src="<?php echo $this->webroot ?>img/client_logo_white.png" alt="" width="80"/>
+				<!--img src="<?php echo $this->webroot ?>img/client_logo_white.png" alt="" width="80"/-->
 			</a>
 		</div>
 		<div class="sidebarSep mt0"></div>
