@@ -1,0 +1,1 @@
+{"device_id":"869159020466771","instagram":"jjdjjkd","id":"201609282331078691590204667711","token":"461fd77b-1f04-4cf9-a045-49fb07435913","email":"jono@gmail.com","name":"Jono","device_model":"Xiaomi Redmi Note 2","gender":"male","cigarette_brand_id":"6","device_date":"2016-09-28 23:31:07","cigarette_brand_product_id":"","user_id":"1","mobile_phone":"8998988"}

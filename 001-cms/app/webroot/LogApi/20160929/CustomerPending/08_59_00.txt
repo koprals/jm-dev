@@ -1,0 +1,1 @@
+{"token":"461fd77b-1f04-4cf9-a045-49fb07435913","name":["djdjjdf"],"user_id":"1","gender":["male"],"email":["djdj@sjd.fko"],"cigarette_brand_product_id":["18"],"mobile_phone":["5959565"],"device_date":["2016-09-29 08:58:21"],"id":["201609290858218691590204667711"],"device_id":["869159020466771"],"device_model":["Xiaomi Redmi Note 2"],"cigarette_brand_id":["6"],"instagram":[""]}

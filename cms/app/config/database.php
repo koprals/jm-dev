@@ -77,9 +77,9 @@ class DATABASE_CONFIG {
 		'driver' => 'mysql',
 		'persistent' => false,
 		'host' => 'localhost',
-		'login' => 'jualanmotor',
-		'password' => 'jualanmotor***2k12',
-		'database' => 'jualanmotor',
+		'login' => 'root',
+		'password' => '',
+		'database' => 'jualanmotor_bu',
 		'prefix' => '',
 	);
 }

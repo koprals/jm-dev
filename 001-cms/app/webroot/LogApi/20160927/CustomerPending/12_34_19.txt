@@ -1,0 +1,1 @@
+{"gender":["male"],"email":["sndnd"],"cigarette_brand_product_id":["32"],"mobile_phone":["56565"],"device_date":["2016-09-27 11:02:12"],"id":["201609271102128691590204667711"],"token":"461fd77b-1f04-4cf9-a045-49fb07435913","device_id":["869159020466771"],"name":["smsnmss"],"device_model":["Xiaomi Redmi Note 2"],"user_id":["1"],"cigarette_brand_id":["10"],"instagram":["xhxhxd"]}

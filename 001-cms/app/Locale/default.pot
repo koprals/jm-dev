@@ -1,0 +1,104 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2015-07-07 19:49+0200\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: /User.php:55
+msgid "Please insert your name"
+msgstr ""
+
+#: /User.php:59
+msgid "Your name is too long"
+msgstr ""
+
+#: /User.php:63
+msgid "Your name is too sort"
+msgstr ""
+
+#: /User.php:69;157
+msgid "Please insert your email"
+msgstr ""
+
+#: /User.php:73;161
+msgid "Your email format is wrong"
+msgstr ""
+
+#: /User.php:77
+msgid "Email already taken, please choose another"
+msgstr ""
+
+#: /User.php:84;167
+msgid "Please insert your password"
+msgstr ""
+
+#: /User.php:88
+msgid "Your password is too sort"
+msgstr ""
+
+#: /User.php:92
+msgid "Your password is too long"
+msgstr ""
+
+#: /User.php:99
+msgid "Please insert your phone number"
+msgstr ""
+
+#: /User.php:103
+msgid "Your phone is too sort"
+msgstr ""
+
+#: /User.php:107
+msgid "Your phone is too long"
+msgstr ""
+
+#: /User.php:113
+msgid "Please select your province/state"
+msgstr ""
+
+#: /User.php:119
+msgid "Please select your city"
+msgstr ""
+
+#: /User.php:125
+msgid "Please insert your address"
+msgstr ""
+
+#: /User.php:129
+msgid "Your address is too sort."
+msgstr ""
+
+#: /User.php:133
+msgid "Your address is too long."
+msgstr ""
+
+#: /User.php:139
+msgid "Please upload your picture"
+msgstr ""
+
+#: /User.php:144
+msgid "Only (*.gif,*.jpeg,*.jpg,*.png) are allowed."
+msgstr ""
+
+#: /User.php:171
+msgid "Your username or password is wrong"
+msgstr ""
+
+#: /User.php:175
+msgid "Your email is not exists"
+msgstr ""
+
+#: /User.php:179
+msgid "Image size is too big"
+msgstr ""
+

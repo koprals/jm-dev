@@ -21,7 +21,7 @@ class AppController extends Controller
 	
 	function beforeFilter()
 	{
-
+		/**
 		//REDIRECT PAGE IF DOMAIN NOT WWW
 		$uri=	$this->__curPageURL();
 		preg_match("/^(http:)\/\/(www\.)?(.*)/i",$uri, $matches);
@@ -31,7 +31,9 @@ class AppController extends Controller
 			//$this->redirect($valid);
 		}
 		$this->layout			=	'index';
-		
+		**/
+
+		/**
 		//CHECK COOKIE LOGIN
 		$admin_cookie	=	$this->Cookie->read("admin");
 		
@@ -43,6 +45,7 @@ class AppController extends Controller
 		{
 			$this->profile	=	$this->CheckProfile();
 		}
+		**/
 		
 		
 		//SET GENERAL SETTINGS

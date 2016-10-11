@@ -1,0 +1,1 @@
+<?php echo $this->requestAction("/Template/LeftMenu/{$lft_menu_category_id}",array("return"))?>

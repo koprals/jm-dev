@@ -17,10 +17,10 @@ class AccessAdminController extends AppController
 		$this->settings	=	$settings['Setting'];
 		$this->Cookie->domain	=	$this->settings['site_domain'];
 	}
+
 	
 	function Login()
 	{
-		
 		if(!empty($this->data))
 		{
 			$this->loadModel("User");
@@ -30,14 +30,15 @@ class AccessAdminController extends AppController
 			if($this->User->validates())
 			{
 				$fByEmail		=	$this->User->findByEmail($this->data['User']['email_login']);
-				$session_back	=	$this->Cookie->read('cms.back_url');
+				$session_back	=	$this->Cookie->read('back_url');
 				
                 $back_url		=	isset($session_back) ? $session_back : $this->settings['cms_url'];
-				$this->Cookie->write("admin",$this->General->my_encrypt($fByEmail['User']['id']), false,3600,$this->settings['site_domain']);
+				$this->Cookie->write("admin",$this->General->my_encrypt($fByEmail['User']['id']), false,$this->settings['site_domain']);
 				$this->redirect($back_url);
 			}
 		}
 	}
+	
 	
 	function Logout()
 	{
