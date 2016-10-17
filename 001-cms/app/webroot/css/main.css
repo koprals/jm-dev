@@ -276,6 +276,7 @@ ul.userDropdown li a:hover { border-right: none; border-left: none; }
 .nav li.settings a span { background-image: url(../img/icons/light/cog3.png); }
 .nav li.shop a span { background-image: url(../img/icons/light/cart3.png); }
 .nav li.vouchers a span { background-image: url(../img/icons/light/tags.png); }
+.nav li.mail a span { background-image: url(../img/icons/light/mail.png); }
 .nav li a span { background-position: 12px 13px; background-repeat: no-repeat; }
 
 

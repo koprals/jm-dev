@@ -11,7 +11,7 @@ class AdminsController extends AppController
 		parent::beforeFilter();
 		$this->set("ControllerName",$this->ControllerName);
 		$this->set("ModelName",$this->ModelName);
-		$this->set('lft_menu_category_id',"3");
+		$this->set('lft_menu_category_id',"10");
 
 		//CHECK PRIVILEGES
 		$this->loadModel("MyAco");
