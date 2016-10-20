@@ -14,15 +14,14 @@
 <link rel="apple-touch-icon" sizes="152x152" href="<?php echo $this->webroot?>favicon/apple-icon-152x152.png">
 <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $this->webroot?>favicon/apple-icon-180x180.png">
 <link rel="icon" type="image/png" sizes="192x192"  href="<?php echo $this->webroot?>favicon/android-icon-192x192.png">
-<link rel="icon" type="image/png" sizes="32x32" href="<?php echo $this->webroot?>favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="<?php echo $this->webroot?>favicon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="32x32" href="<?php echo $this->webroot?>favicon.jpg">
+<link rel="icon" type="image/png" sizes="96x96" href="<?php echo $this->webroot?>favicon.jpg">
 <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $this->webroot?>favicon.jpg">
 <link rel="manifest" href="<?php echo $this->webroot?>favicon/manifest.json">
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="<?php echo $this->webroot?>favicon.jpg">
 <meta name="theme-color" content="#ffffff">
 <?php
-
 
 //************ CSS NEEDED ****************//
 echo $this->Html->css("main");

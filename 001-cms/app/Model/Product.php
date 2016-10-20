@@ -4,13 +4,12 @@ class Product extends AppModel
 {
 	var $dataOld;
 	var $name 		=	"Product";
-	var $inserted_ids 	=	array();
 
 	public function BindList($reset=true)
 	{
 		$this->bindModel(array(
 			"belongsTo" => array(
-				"Category", "User", "Province", "City", "Stnk", "Bpkb", "ProductStatus"
+				"Category", "User", "Province", "Stnk", "Bpkb", "Productstatus"
 			)
 		), $reset);
 	}
@@ -100,41 +99,9 @@ class Product extends AppModel
 		return true;
 	}
 
-	 function setExistingId()
-	 {
-        if (!$this->id)
-		{
-            $data = $this->data[$this->alias];
-            if (isset($data['email']))
-			{
-                //CHECK EMAIL
-				$email		=	$this->data[$this->alias]["email"];
-				if($email != "no_email@jti.com")
-				{
-					$check		=	$this->find("first",array(
-										"conditions"	=>	array(
-											"{$this->name}.email"	=>	$email
-										)
-									));
-
-					if(!empty($check))
-					{
-						$this->id		=	$check[$this->name]["id"];
-						$this->__exists = true;
-					}
-				}
-            }
-        }
-    }
-
-
 	public function afterSave($created,$options = array())
 	{
-		if($created)
-		{
-			$this->inserted_ids[] = $this->getInsertID();
-		}
-		return true;
+
 	}
 
 	public function beforeValidate($options = array())
@@ -153,11 +120,6 @@ class Product extends AppModel
 		return true;
 	}
 
-	function ValidateAdd()
-	{
-
-	}
-
 	function BindDefault($reset	=	true)
 	{
 
@@ -165,40 +127,16 @@ class Product extends AppModel
 
 	function UnBindDefault($reset	=	true)
 	{
-	}
 
-	public function BindPanel($reset	=	true)
-	{
-		$this->bindModel(array(
-			"hasMany"	=>	array(
-				"PanelContent"	=>	array(
-					"foreignKey"	=>	"model_id",
-					"conditions"	=>	array(
-						"PanelContent.model"		=>	$this->name
-					)
-				)
-			)
-		),$reset);
 	}
 
 	function VirtualFieldActivated()
 	{
 		$this->virtualFields = array(
-			'SStatus'		  =>  "IF((".$this->name.".status='0'), 'Hide', IF((".$this->name.".status='1'), 'Publish', 'Draft'))",
-      'CConditions' =>  'IF(('.$this->name.'.status=\'2\'),\'Baru\',\'Bekas\')',
-      'DDataTypes'  =>  'IF(('.$this->name.'.status=\'1\'),\'Profile\',\'Company\')'
+			//'SStatus'		  =>  "IF((".$this->name.".status='0'), 'Hide', IF((".$this->name.".status='1'), 'Publish', 'Draft'))",
+      'CConditions' =>  'IF(('.$this->name.'.condition_id=\'1\'),\'Baru\',\'Bekas\')',
+      'SSold'  =>  'IF(('.$this->name.'.sold=\'1\'),\'Sudah Terjual\',\'Belum Terjual\')'
 		);
-	}
-
-	function rand_number( $length ) {
-		$chars	=	"0123456789";
-		$str	=	"";
-
-		$size = strlen( $chars );
-		for( $i = 0; $i < $length; $i++ ) {
-			$str .= $chars[ rand( 0, $size - 1 ) ];
-		}
-		return $str;
 	}
 
 	function notEmptyLength($fields = array())
@@ -299,24 +237,6 @@ class Product extends AppModel
 			}
         }
         return TRUE;
-	}
-
-	function paginateCount($conditions = null, $recursive = 0, $extra = array())
-	{
-		$parameters 			=	compact('conditions');
-		$parameters["fields"]	=	array('Product.id');
-	    $this->recursive 		=	$recursive;
-
-		if (isset($extra['group']))
-		{
-			$paginationcount = $this->find('all', array_merge($parameters, $extra));
-			$paginationcount = count($paginationcount);
-		}
-		else
-		{
-			$paginationcount = $this->find('count', array_merge($parameters, $extra));
-		}
-		return $paginationcount;
 	}
 }
 ?>

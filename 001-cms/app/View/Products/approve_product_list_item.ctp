@@ -11,7 +11,7 @@
 <?php $this->Paginator->options(array(
 				'url'	=> array(
 					'controller'	=> $ControllerName,
-					'action'		=> 'ListItem/limit:'.$viewpage,
+					'action'		=> 'ApproveProductListItem/limit:'.$viewpage,
 				),
 				'onclick'=>"return onClickPage(this,'#contents_area');")
 			);
@@ -26,7 +26,7 @@ function ChangeStatus(msg,id,status)
 			alert(result.data.message);
 			if(result.data.status == "1")
 			{
-				$("#contents_area").load("<?php echo $settings["cms_url"].$ControllerName?>/ListItem/page:<?php echo $page?>/limit:<?php echo $viewpage.$ordered?>",function(){
+				$("#contents_area").load("<?php echo $settings["cms_url"].$ControllerName?>/ApproveProductListItem/page:<?php echo $page?>/limit:<?php echo $viewpage.$ordered?>",function(){
 					$("#view, input:checkbox, #action").uniform();
 					$('.tipS').tipsy({gravity: 's',fade: true});
 					$("a[rel^='lightbox']").prettyPhoto({
@@ -48,7 +48,7 @@ function Delete(msg,id)
 			alert(result.data.message);
 			if(result.data.status == "1")
 			{
-				$("#contents_area").load("<?php echo $settings["cms_url"].$ControllerName?>/ListItem/page:<?php echo $page?>/limit:<?php echo $viewpage.$ordered?>",function(){
+				$("#contents_area").load("<?php echo $settings["cms_url"].$ControllerName?>/ApproveProductListItem/page:<?php echo $page?>/limit:<?php echo $viewpage.$ordered?>",function(){
 					$("#view, input:checkbox, #action").uniform();
 					$('.tipS').tipsy({gravity: 's',fade: true});
 					$("a[rel^='lightbox']").prettyPhoto({
@@ -70,7 +70,7 @@ function UpLevel(msg,id)
 			alert(result.data.message);
 			if(result.data.status == "1")
 			{
-				$("#contents_area").load("<?php echo $settings["cms_url"].$ControllerName?>/ListItem/page:<?php echo $page?>/limit:<?php echo $viewpage.$ordered?>",function(){
+				$("#contents_area").load("<?php echo $settings["cms_url"].$ControllerName?>/ApproveProductListItem/page:<?php echo $page?>/limit:<?php echo $viewpage.$ordered?>",function(){
 					$("#view, input:checkbox, #action").uniform();
 					$('.tipS').tipsy({gravity: 's',fade: true});
 					$("a[rel^='lightbox']").prettyPhoto({
@@ -92,7 +92,7 @@ function DownLevel(msg,id)
 			alert(result.data.message);
 			if(result.data.status == "1")
 			{
-				$("#contents_area").load("<?php echo $settings["cms_url"].$ControllerName?>/ListItem/page:<?php echo $page?>/limit:<?php echo $viewpage.$ordered?>",function(){
+				$("#contents_area").load("<?php echo $settings["cms_url"].$ControllerName?>/ApproveProductListItem/page:<?php echo $page?>/limit:<?php echo $viewpage.$ordered?>",function(){
 					$("#view, input:checkbox, #action").uniform();
 					$('.tipS').tipsy({gravity: 's',fade: true});
 					$("a[rel^='lightbox']").prettyPhoto({
@@ -142,7 +142,7 @@ function ActionChecked()
 						alert(result.data.message);
 						if(result.data.status == "1")
 						{
-							$("#contents_area").load("<?php echo $settings["cms_url"].$ControllerName?>/ListItem/page:1/limit:<?php echo $viewpage.$ordered?>",function(result){
+							$("#contents_area").load("<?php echo $settings["cms_url"].$ControllerName?>/ApproveProductListItem/page:1/limit:<?php echo $viewpage.$ordered?>",function(result){
 								$("#view, input:checkbox, #action").uniform();
 								$('.tipS').tipsy({gravity: 's',fade: true});
 								$("a[rel^='lightbox']").prettyPhoto({
@@ -168,7 +168,7 @@ function ActionChecked()
 						alert(result.data.message);
 						if(result.data.status == "1")
 						{
-							$("#contents_area").load("<?php echo $settings["cms_url"].$ControllerName?>/ListItem/page:1/limit:<?php echo $viewpage.$ordered?>",function(result){
+							$("#contents_area").load("<?php echo $settings["cms_url"].$ControllerName?>/ApproveProductListItem/page:1/limit:<?php echo $viewpage.$ordered?>",function(result){
 								$("#view, input:checkbox, #action").uniform();
 								$('.tipS').tipsy({gravity: 's',fade: true});
 								$("a[rel^='lightbox']").prettyPhoto({
@@ -194,7 +194,7 @@ function ActionChecked()
 						alert(result.data.message);
 						if(result.data.status == "1")
 						{
-							$("#contents_area").load("<?php echo $settings["cms_url"].$ControllerName?>/ListItem/page:1/limit:<?php echo $viewpage.$ordered?>",function(result){
+							$("#contents_area").load("<?php echo $settings["cms_url"].$ControllerName?>/ApproveProductListItem/page:1/limit:<?php echo $viewpage.$ordered?>",function(result){
 								$("#view, input:checkbox, #action").uniform();
 								$('.tipS').tipsy({gravity: 's',fade: true});
 								$("a[rel^='lightbox']").prettyPhoto({
@@ -220,7 +220,7 @@ function ActionChecked()
 						alert(result.data.message);
 						if(result.data.status == "1")
 						{
-							$("#contents_area").load("<?php echo $settings["cms_url"].$ControllerName?>/ListItem/page:1/limit:<?php echo $viewpage.$ordered?>",function(result){
+							$("#contents_area").load("<?php echo $settings["cms_url"].$ControllerName?>/ApproveProductListItem/page:1/limit:<?php echo $viewpage.$ordered?>",function(result){
 								$("#view, input:checkbox, #action").uniform();
 								$('.tipS').tipsy({gravity: 's',fade: true});
 								$("a[rel^='lightbox']").prettyPhoto({
@@ -246,7 +246,7 @@ function ActionChecked()
 						alert(result.data.message);
 						if(result.data.status == "1")
 						{
-							$("#contents_area").load("<?php echo $settings["cms_url"].$ControllerName?>/ListItem/page:1/limit:<?php echo $viewpage.$ordered?>",function(result){
+							$("#contents_area").load("<?php echo $settings["cms_url"].$ControllerName?>/ApproveProductListItem/page:1/limit:<?php echo $viewpage.$ordered?>",function(result){
 								$("#view, input:checkbox, #action").uniform();
 								$('.tipS').tipsy({gravity: 's',fade: true});
 								$("a[rel^='lightbox']").prettyPhoto({
@@ -279,7 +279,7 @@ function CheckAll(el)
 	<div class="title">
 		<img src="<?php echo $this->webroot ?>img/icons/dark/frames.png" alt="" class="titleIcon">
 		<h6>
-			Advertisement List
+			Approve Advertisement List
 		</h6>
 	</div>
   <div class="title">
@@ -323,7 +323,7 @@ function CheckAll(el)
       <div class="dataTables_length">
 				<label>
 					<span>Show entries:</span>
-					<?PHP echo $this->Form->select("view",array(1=>1,5=>5,10=>10,20=>20,50=>50,100=>100,200=>200,1000=>1000),array("onchange"=>"onClickPage('".$settings["cms_url"].$ControllerName."/ListItem/limit:'+this.value+'".$ordered."/','#contents_area')","empty"=>false,"default"=>$viewpage))?>
+					<?PHP echo $this->Form->select("view",array(1=>1,5=>5,10=>10,20=>20,50=>50,100=>100,200=>200,1000=>1000),array("onchange"=>"onClickPage('".$settings["cms_url"].$ControllerName."/ApproveProductListItem/limit:'+this.value+'".$ordered."/','#contents_area')","empty"=>false,"default"=>$viewpage))?>
 				</label>
 			</div>
 		</div>

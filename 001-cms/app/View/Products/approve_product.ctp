@@ -2,7 +2,7 @@
 <script>
 $(document).ready(function(){
 	$("#contents_area").css("opacity","0.5");
-	$("#contents_area").load("<?php echo $settings['cms_url'] . $ControllerName?>/ListItem/page:<?php echo $page?>/limit:<?php echo $viewpage?>/?time=<?php echo time()?>",function(){
+	$("#contents_area").load("<?php echo $settings['cms_url'] . $ControllerName?>/ApproveProductListItem/page:<?php echo $page?>/limit:<?php echo $viewpage?>/?time=<?php echo time()?>",function(){
 		$("#contents_area").css("opacity","1");
 		$("a[rel^='lightbox']").prettyPhoto({
 			social_tools :''
@@ -94,7 +94,7 @@ function onClickPage(el,divName)
 function SearchAdvance()
 {
 	$("#SearchAdvance").ajaxSubmit({
-		url:"<?php echo $settings['cms_url'].$ControllerName ?>/ListItem",
+		url:"<?php echo $settings['cms_url'].$ControllerName ?>/ApproveProductListItem",
 		type:'POST',
 		dataType: "html",
 		clearForm:false,
@@ -136,7 +136,7 @@ function ClearSearchAdvance()
 <div class="titleArea">
     <div class="wrapper">
         <div class="pageTitle">
-            <h5>Advertisement</h5>
+            <h5>Approve Advertisement</h5>
             <span>List</span>
         </div>
     </div>
@@ -165,7 +165,7 @@ function ClearSearchAdvance()
 		<div class="bc">
 	        <ul id="breadcrumbs" class="breadcrumbs">
 	             <li>
-	                  <a href="javascript:void(0)">Advertisement</a>
+	                  <a href="javascript:void(0)">Approve Advertisement</a>
 	             </li>
 	             <li class="current">
 	                  <a href="javascript:void(0)">List</a>
