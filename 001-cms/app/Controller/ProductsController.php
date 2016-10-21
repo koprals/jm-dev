@@ -261,6 +261,598 @@ class ProductsController extends AppController
 		$this->set(compact('data','page','viewpage'));
 	}
 
+	function EditingRequired($page=1,$viewpage=50)
+	{
+		if($this->access[$this->aco_id]["_read"] != "1")
+		{
+			$this->layout	=	"no_access";
+			return;
+		}
+
+		$this->Session->delete("Search.".$this->ControllerName);
+		$this->Session->delete('Search.'.$this->ControllerName.'Operand');
+		$this->Session->delete('Search.'.$this->ControllerName.'ViewPage');
+		$this->Session->delete('Search.'.$this->ControllerName.'Sort');
+		$this->Session->delete('Search.'.$this->ControllerName.'Page');
+		$this->Session->delete('Search.'.$this->ControllerName.'Conditions');
+		$this->set(compact("page","viewpage"));
+	}
+
+	function EditingRequiredListItem()
+	{
+		$this->layout	=	"ajax";
+		if ($this->access[$this->aco_id]["_read"] != "1") {
+				$data = array();
+				$this->set(compact("data"));
+				return;
+		}
+
+		$this->loadModel($this->ModelName);
+		$this->{$this->ModelName}->BindList();
+		$this->{$this->ModelName}->VirtualFieldActivated();
+
+		//DEFINE LAYOUT, LIMIT AND OPERAND
+		$viewpage			=	empty($this->params['named']['limit']) ? 50 : $this->params['named']['limit'];
+		$order				=	array("{$this->ModelName}.created" => "DESC");
+		$operand			=	"AND";
+
+		//DEFINE SEARCH DATA
+		if(!empty($this->request->data))
+		{
+			$cond_search	=	array();
+			$operand		=	$this->request->data[$this->ModelName]['operator'];
+			$this->Session->delete('Search.'.$this->ControllerName);
+
+			if(!empty($this->request->data['Search']['start_date'])) {
+				if(!empty($this->request->data['Search']['end_date'])) {
+
+
+					$startDateExplode = explode("-", $this->request->data['Search']['start_date']);
+					$startTime = date("Y-m-d H:i:s", mktime(3, 0, 0, $startDateExplode[1], $startDateExplode[2] ,$startDateExplode[0]));
+
+					$endDateExplode = explode("-", $this->request->data['Search']['end_date']);
+					$endTime = date("Y-m-d H:i:s", mktime(2, 59, 59, $endDateExplode[1], 1 + $endDateExplode[2], $endDateExplode[0]));
+
+					$cond_search["and"] = array("Customer.created >=" => $startTime, "Customer.created <=" => $endTime);
+				} else {
+
+					$startDateExplode = explode("-", $this->request->data['Search']['start_date']);
+					$startTime = date("Y-m-d H:i:s", mktime(3, 0, 0, $startDateExplode[1], $startDateExplode[2] ,$startDateExplode[0]));
+
+					$endDateExplode = explode("-", $this->request->data['Search']['start_date']);
+					$endTime = date("Y-m-d H:i:s", mktime(2, 59, 59, $endDateExplode[1], $endDateExplode[2] + 1 ,$endDateExplode[0]));
+
+					$cond_search["and"] = array("Customer.created >=" => $startTime, "Customer.created <=" => $endTime);
+				}
+			}
+
+			if(!empty($this->request->data['Search']['name']))
+			{
+				$cond_search["{$this->ModelName}.name LIKE "]			=	"%".$this->data['Search']['name']."%";
+			}
+			if(!empty($this->request->data['Search']['email']))
+			{
+				$cond_search["{$this->ModelName}.email LIKE "]			=	"%".$this->data['Search']['email']."%";
+			}
+
+			if(!empty($this->request->data['Search']['customer_email_status_id']))
+			{
+				$cond_search["{$this->ModelName}.customer_email_status_id"]				=	$this->data['Search']['customer_email_status_id'];
+			}
+
+			if($this->request->data["Search"]['reset']=="0")
+			{
+				$this->Session->write("Search.".$this->ControllerName,$cond_search);
+				$this->Session->write('Search.'.$this->ControllerName.'Operand',$operand);
+			}
+		}
+
+		$this->Session->write('Search.'.$this->ControllerName.'Viewpage',$viewpage);
+		$this->Session->write('Search.'.$this->ControllerName.'Sort',(empty($this->params['named']['sort']) or !isset($this->params['named']['sort'])) ? $order : $this->params['named']['sort']." ".$this->params['named']['direction']);
+
+		$cond_search		=	array();
+		$filter_paginate	=	array("{$this->ModelName}.productstatus_id"	=> -1);
+		$this->paginate		=	array(
+									"{$this->ModelName}"	=>	array(
+										"order"				=>	$order,
+										'limit'				=>	$viewpage,
+										"recursive" 	=> 1
+									)
+								);
+
+		$ses_cond			=	$this->Session->read("Search.".$this->ControllerName);
+		$cond_search		=	isset($ses_cond) ? $ses_cond : array();
+		$ses_operand		=	$this->Session->read("Search.".$this->ControllerName."Operand");
+		$operand			=	isset($ses_operand) ? $ses_operand : "AND";
+		$merge_cond			=	empty($cond_search) ? $filter_paginate : array_merge($filter_paginate,array($operand => $cond_search) );
+		$data				=	$this->paginate("{$this->ModelName}",$merge_cond);
+		debug($data);
+
+		$this->Session->write('Search.'.$this->ControllerName.'Conditions',$merge_cond);
+
+		if(isset($this->params['named']['page']) && $this->params['named']['page'] > $this->params['paging'][$this->ModelName]['pageCount'])
+		{
+			$this->params['named']['page']	=	$this->params['paging'][$this->ModelName]['pageCount'];
+		}
+		$page				=	empty($this->params['named']['page']) ? 1 : $this->params['named']['page'];
+		$this->Session->write('Search.'.$this->ControllerName.'Page',$page);
+		$this->set(compact('data','page','viewpage'));
+	}
+
+	function WaitingApproval($page=1,$viewpage=50)
+	{
+		if($this->access[$this->aco_id]["_read"] != "1")
+		{
+			$this->layout	=	"no_access";
+			return;
+		}
+
+		$this->Session->delete("Search.".$this->ControllerName);
+		$this->Session->delete('Search.'.$this->ControllerName.'Operand');
+		$this->Session->delete('Search.'.$this->ControllerName.'ViewPage');
+		$this->Session->delete('Search.'.$this->ControllerName.'Sort');
+		$this->Session->delete('Search.'.$this->ControllerName.'Page');
+		$this->Session->delete('Search.'.$this->ControllerName.'Conditions');
+		$this->set(compact("page","viewpage"));
+	}
+
+	function WaitingApprovalListItem()
+	{
+		$this->layout	=	"ajax";
+		if ($this->access[$this->aco_id]["_read"] != "1") {
+				$data = array();
+				$this->set(compact("data"));
+				return;
+		}
+
+		$this->loadModel($this->ModelName);
+		$this->{$this->ModelName}->BindList();
+		$this->{$this->ModelName}->VirtualFieldActivated();
+
+		//DEFINE LAYOUT, LIMIT AND OPERAND
+		$viewpage			=	empty($this->params['named']['limit']) ? 50 : $this->params['named']['limit'];
+		$order				=	array("{$this->ModelName}.created" => "DESC");
+		$operand			=	"AND";
+
+		//DEFINE SEARCH DATA
+		if(!empty($this->request->data))
+		{
+			$cond_search	=	array();
+			$operand		=	$this->request->data[$this->ModelName]['operator'];
+			$this->Session->delete('Search.'.$this->ControllerName);
+
+			if(!empty($this->request->data['Search']['start_date'])) {
+				if(!empty($this->request->data['Search']['end_date'])) {
+
+
+					$startDateExplode = explode("-", $this->request->data['Search']['start_date']);
+					$startTime = date("Y-m-d H:i:s", mktime(3, 0, 0, $startDateExplode[1], $startDateExplode[2] ,$startDateExplode[0]));
+
+					$endDateExplode = explode("-", $this->request->data['Search']['end_date']);
+					$endTime = date("Y-m-d H:i:s", mktime(2, 59, 59, $endDateExplode[1], 1 + $endDateExplode[2], $endDateExplode[0]));
+
+					$cond_search["and"] = array("Customer.created >=" => $startTime, "Customer.created <=" => $endTime);
+				} else {
+
+					$startDateExplode = explode("-", $this->request->data['Search']['start_date']);
+					$startTime = date("Y-m-d H:i:s", mktime(3, 0, 0, $startDateExplode[1], $startDateExplode[2] ,$startDateExplode[0]));
+
+					$endDateExplode = explode("-", $this->request->data['Search']['start_date']);
+					$endTime = date("Y-m-d H:i:s", mktime(2, 59, 59, $endDateExplode[1], $endDateExplode[2] + 1 ,$endDateExplode[0]));
+
+					$cond_search["and"] = array("Customer.created >=" => $startTime, "Customer.created <=" => $endTime);
+				}
+			}
+
+			if(!empty($this->request->data['Search']['name']))
+			{
+				$cond_search["{$this->ModelName}.name LIKE "]			=	"%".$this->data['Search']['name']."%";
+			}
+			if(!empty($this->request->data['Search']['email']))
+			{
+				$cond_search["{$this->ModelName}.email LIKE "]			=	"%".$this->data['Search']['email']."%";
+			}
+
+			if(!empty($this->request->data['Search']['customer_email_status_id']))
+			{
+				$cond_search["{$this->ModelName}.customer_email_status_id"]				=	$this->data['Search']['customer_email_status_id'];
+			}
+
+			if($this->request->data["Search"]['reset']=="0")
+			{
+				$this->Session->write("Search.".$this->ControllerName,$cond_search);
+				$this->Session->write('Search.'.$this->ControllerName.'Operand',$operand);
+			}
+		}
+
+		$this->Session->write('Search.'.$this->ControllerName.'Viewpage',$viewpage);
+		$this->Session->write('Search.'.$this->ControllerName.'Sort',(empty($this->params['named']['sort']) or !isset($this->params['named']['sort'])) ? $order : $this->params['named']['sort']." ".$this->params['named']['direction']);
+
+		$cond_search		=	array();
+		$filter_paginate	=	array("{$this->ModelName}.productstatus_id"	=> 0);
+		$this->paginate		=	array(
+									"{$this->ModelName}"	=>	array(
+										"order"				=>	$order,
+										'limit'				=>	$viewpage,
+										"recursive" 	=> 1
+									)
+								);
+
+		$ses_cond			=	$this->Session->read("Search.".$this->ControllerName);
+		$cond_search		=	isset($ses_cond) ? $ses_cond : array();
+		$ses_operand		=	$this->Session->read("Search.".$this->ControllerName."Operand");
+		$operand			=	isset($ses_operand) ? $ses_operand : "AND";
+		$merge_cond			=	empty($cond_search) ? $filter_paginate : array_merge($filter_paginate,array($operand => $cond_search) );
+		$data				=	$this->paginate("{$this->ModelName}",$merge_cond);
+		debug($data);
+
+		$this->Session->write('Search.'.$this->ControllerName.'Conditions',$merge_cond);
+
+		if(isset($this->params['named']['page']) && $this->params['named']['page'] > $this->params['paging'][$this->ModelName]['pageCount'])
+		{
+			$this->params['named']['page']	=	$this->params['paging'][$this->ModelName]['pageCount'];
+		}
+		$page				=	empty($this->params['named']['page']) ? 1 : $this->params['named']['page'];
+		$this->Session->write('Search.'.$this->ControllerName.'Page',$page);
+		$this->set(compact('data','page','viewpage'));
+	}
+
+	function AfterEditing($page=1,$viewpage=50)
+	{
+		if($this->access[$this->aco_id]["_read"] != "1")
+		{
+			$this->layout	=	"no_access";
+			return;
+		}
+
+		$this->Session->delete("Search.".$this->ControllerName);
+		$this->Session->delete('Search.'.$this->ControllerName.'Operand');
+		$this->Session->delete('Search.'.$this->ControllerName.'ViewPage');
+		$this->Session->delete('Search.'.$this->ControllerName.'Sort');
+		$this->Session->delete('Search.'.$this->ControllerName.'Page');
+		$this->Session->delete('Search.'.$this->ControllerName.'Conditions');
+		$this->set(compact("page","viewpage"));
+	}
+
+	function AfterEditingListItem()
+	{
+		$this->layout	=	"ajax";
+		if ($this->access[$this->aco_id]["_read"] != "1") {
+				$data = array();
+				$this->set(compact("data"));
+				return;
+		}
+
+		$this->loadModel($this->ModelName);
+		$this->{$this->ModelName}->BindList();
+		$this->{$this->ModelName}->VirtualFieldActivated();
+
+		//DEFINE LAYOUT, LIMIT AND OPERAND
+		$viewpage			=	empty($this->params['named']['limit']) ? 50 : $this->params['named']['limit'];
+		$order				=	array("{$this->ModelName}.created" => "DESC");
+		$operand			=	"AND";
+
+		//DEFINE SEARCH DATA
+		if(!empty($this->request->data))
+		{
+			$cond_search	=	array();
+			$operand		=	$this->request->data[$this->ModelName]['operator'];
+			$this->Session->delete('Search.'.$this->ControllerName);
+
+			if(!empty($this->request->data['Search']['start_date'])) {
+				if(!empty($this->request->data['Search']['end_date'])) {
+
+
+					$startDateExplode = explode("-", $this->request->data['Search']['start_date']);
+					$startTime = date("Y-m-d H:i:s", mktime(3, 0, 0, $startDateExplode[1], $startDateExplode[2] ,$startDateExplode[0]));
+
+					$endDateExplode = explode("-", $this->request->data['Search']['end_date']);
+					$endTime = date("Y-m-d H:i:s", mktime(2, 59, 59, $endDateExplode[1], 1 + $endDateExplode[2], $endDateExplode[0]));
+
+					$cond_search["and"] = array("Customer.created >=" => $startTime, "Customer.created <=" => $endTime);
+				} else {
+
+					$startDateExplode = explode("-", $this->request->data['Search']['start_date']);
+					$startTime = date("Y-m-d H:i:s", mktime(3, 0, 0, $startDateExplode[1], $startDateExplode[2] ,$startDateExplode[0]));
+
+					$endDateExplode = explode("-", $this->request->data['Search']['start_date']);
+					$endTime = date("Y-m-d H:i:s", mktime(2, 59, 59, $endDateExplode[1], $endDateExplode[2] + 1 ,$endDateExplode[0]));
+
+					$cond_search["and"] = array("Customer.created >=" => $startTime, "Customer.created <=" => $endTime);
+				}
+			}
+
+			if(!empty($this->request->data['Search']['name']))
+			{
+				$cond_search["{$this->ModelName}.name LIKE "]			=	"%".$this->data['Search']['name']."%";
+			}
+			if(!empty($this->request->data['Search']['email']))
+			{
+				$cond_search["{$this->ModelName}.email LIKE "]			=	"%".$this->data['Search']['email']."%";
+			}
+
+			if(!empty($this->request->data['Search']['customer_email_status_id']))
+			{
+				$cond_search["{$this->ModelName}.customer_email_status_id"]				=	$this->data['Search']['customer_email_status_id'];
+			}
+
+			if($this->request->data["Search"]['reset']=="0")
+			{
+				$this->Session->write("Search.".$this->ControllerName,$cond_search);
+				$this->Session->write('Search.'.$this->ControllerName.'Operand',$operand);
+			}
+		}
+
+		$this->Session->write('Search.'.$this->ControllerName.'Viewpage',$viewpage);
+		$this->Session->write('Search.'.$this->ControllerName.'Sort',(empty($this->params['named']['sort']) or !isset($this->params['named']['sort'])) ? $order : $this->params['named']['sort']." ".$this->params['named']['direction']);
+
+		$cond_search		=	array();
+		$filter_paginate	=	array("{$this->ModelName}.productstatus_id"	=> -2);
+		$this->paginate		=	array(
+									"{$this->ModelName}"	=>	array(
+										"order"				=>	$order,
+										'limit'				=>	$viewpage,
+										"recursive" 	=> 1
+									)
+								);
+
+		$ses_cond			=	$this->Session->read("Search.".$this->ControllerName);
+		$cond_search		=	isset($ses_cond) ? $ses_cond : array();
+		$ses_operand		=	$this->Session->read("Search.".$this->ControllerName."Operand");
+		$operand			=	isset($ses_operand) ? $ses_operand : "AND";
+		$merge_cond			=	empty($cond_search) ? $filter_paginate : array_merge($filter_paginate,array($operand => $cond_search) );
+		$data				=	$this->paginate("{$this->ModelName}",$merge_cond);
+		debug($data);
+
+		$this->Session->write('Search.'.$this->ControllerName.'Conditions',$merge_cond);
+
+		if(isset($this->params['named']['page']) && $this->params['named']['page'] > $this->params['paging'][$this->ModelName]['pageCount'])
+		{
+			$this->params['named']['page']	=	$this->params['paging'][$this->ModelName]['pageCount'];
+		}
+		$page				=	empty($this->params['named']['page']) ? 1 : $this->params['named']['page'];
+		$this->Session->write('Search.'.$this->ControllerName.'Page',$page);
+		$this->set(compact('data','page','viewpage'));
+	}
+
+
+	function SoldProduct($page=1,$viewpage=50)
+	{
+		if($this->access[$this->aco_id]["_read"] != "1")
+		{
+			$this->layout	=	"no_access";
+			return;
+		}
+
+		$this->Session->delete("Search.".$this->ControllerName);
+		$this->Session->delete('Search.'.$this->ControllerName.'Operand');
+		$this->Session->delete('Search.'.$this->ControllerName.'ViewPage');
+		$this->Session->delete('Search.'.$this->ControllerName.'Sort');
+		$this->Session->delete('Search.'.$this->ControllerName.'Page');
+		$this->Session->delete('Search.'.$this->ControllerName.'Conditions');
+		$this->set(compact("page","viewpage"));
+	}
+
+	function SoldProductListItem()
+	{
+		$this->layout	=	"ajax";
+		if ($this->access[$this->aco_id]["_read"] != "1") {
+				$data = array();
+				$this->set(compact("data"));
+				return;
+		}
+
+		$this->loadModel($this->ModelName);
+		$this->{$this->ModelName}->BindList();
+		$this->{$this->ModelName}->VirtualFieldActivated();
+
+		//DEFINE LAYOUT, LIMIT AND OPERAND
+		$viewpage			=	empty($this->params['named']['limit']) ? 50 : $this->params['named']['limit'];
+		$order				=	array("{$this->ModelName}.created" => "DESC");
+		$operand			=	"AND";
+
+		//DEFINE SEARCH DATA
+		if(!empty($this->request->data))
+		{
+			$cond_search	=	array();
+			$operand		=	$this->request->data[$this->ModelName]['operator'];
+			$this->Session->delete('Search.'.$this->ControllerName);
+
+			if(!empty($this->request->data['Search']['start_date'])) {
+				if(!empty($this->request->data['Search']['end_date'])) {
+
+
+					$startDateExplode = explode("-", $this->request->data['Search']['start_date']);
+					$startTime = date("Y-m-d H:i:s", mktime(3, 0, 0, $startDateExplode[1], $startDateExplode[2] ,$startDateExplode[0]));
+
+					$endDateExplode = explode("-", $this->request->data['Search']['end_date']);
+					$endTime = date("Y-m-d H:i:s", mktime(2, 59, 59, $endDateExplode[1], 1 + $endDateExplode[2], $endDateExplode[0]));
+
+					$cond_search["and"] = array("Customer.created >=" => $startTime, "Customer.created <=" => $endTime);
+				} else {
+
+					$startDateExplode = explode("-", $this->request->data['Search']['start_date']);
+					$startTime = date("Y-m-d H:i:s", mktime(3, 0, 0, $startDateExplode[1], $startDateExplode[2] ,$startDateExplode[0]));
+
+					$endDateExplode = explode("-", $this->request->data['Search']['start_date']);
+					$endTime = date("Y-m-d H:i:s", mktime(2, 59, 59, $endDateExplode[1], $endDateExplode[2] + 1 ,$endDateExplode[0]));
+
+					$cond_search["and"] = array("Customer.created >=" => $startTime, "Customer.created <=" => $endTime);
+				}
+			}
+
+			if(!empty($this->request->data['Search']['name']))
+			{
+				$cond_search["{$this->ModelName}.name LIKE "]			=	"%".$this->data['Search']['name']."%";
+			}
+			if(!empty($this->request->data['Search']['email']))
+			{
+				$cond_search["{$this->ModelName}.email LIKE "]			=	"%".$this->data['Search']['email']."%";
+			}
+
+			if(!empty($this->request->data['Search']['customer_email_status_id']))
+			{
+				$cond_search["{$this->ModelName}.customer_email_status_id"]				=	$this->data['Search']['customer_email_status_id'];
+			}
+
+			if($this->request->data["Search"]['reset']=="0")
+			{
+				$this->Session->write("Search.".$this->ControllerName,$cond_search);
+				$this->Session->write('Search.'.$this->ControllerName.'Operand',$operand);
+			}
+		}
+
+		$this->Session->write('Search.'.$this->ControllerName.'Viewpage',$viewpage);
+		$this->Session->write('Search.'.$this->ControllerName.'Sort',(empty($this->params['named']['sort']) or !isset($this->params['named']['sort'])) ? $order : $this->params['named']['sort']." ".$this->params['named']['direction']);
+
+		$cond_search		=	array();
+		$filter_paginate	=	array("{$this->ModelName}.productstatus_id"	=> 1, "{$this->ModelName}.sold"	=> 1);
+		$this->paginate		=	array(
+									"{$this->ModelName}"	=>	array(
+										"order"				=>	$order,
+										'limit'				=>	$viewpage,
+										"recursive" 	=> 1
+									)
+								);
+
+		$ses_cond			=	$this->Session->read("Search.".$this->ControllerName);
+		$cond_search		=	isset($ses_cond) ? $ses_cond : array();
+		$ses_operand		=	$this->Session->read("Search.".$this->ControllerName."Operand");
+		$operand			=	isset($ses_operand) ? $ses_operand : "AND";
+		$merge_cond			=	empty($cond_search) ? $filter_paginate : array_merge($filter_paginate,array($operand => $cond_search) );
+		$data				=	$this->paginate("{$this->ModelName}",$merge_cond);
+		debug($data);
+
+		$this->Session->write('Search.'.$this->ControllerName.'Conditions',$merge_cond);
+
+		if(isset($this->params['named']['page']) && $this->params['named']['page'] > $this->params['paging'][$this->ModelName]['pageCount'])
+		{
+			$this->params['named']['page']	=	$this->params['paging'][$this->ModelName]['pageCount'];
+		}
+		$page				=	empty($this->params['named']['page']) ? 1 : $this->params['named']['page'];
+		$this->Session->write('Search.'.$this->ControllerName.'Page',$page);
+		$this->set(compact('data','page','viewpage'));
+	}
+
+	function NotSoldProduct($page=1,$viewpage=50)
+	{
+		if($this->access[$this->aco_id]["_read"] != "1")
+		{
+			$this->layout	=	"no_access";
+			return;
+		}
+
+		$this->Session->delete("Search.".$this->ControllerName);
+		$this->Session->delete('Search.'.$this->ControllerName.'Operand');
+		$this->Session->delete('Search.'.$this->ControllerName.'ViewPage');
+		$this->Session->delete('Search.'.$this->ControllerName.'Sort');
+		$this->Session->delete('Search.'.$this->ControllerName.'Page');
+		$this->Session->delete('Search.'.$this->ControllerName.'Conditions');
+		$this->set(compact("page","viewpage"));
+	}
+
+	function NotSoldProductListItem()
+	{
+		$this->layout	=	"ajax";
+		if ($this->access[$this->aco_id]["_read"] != "1") {
+				$data = array();
+				$this->set(compact("data"));
+				return;
+		}
+
+		$this->loadModel($this->ModelName);
+		$this->{$this->ModelName}->BindList();
+		$this->{$this->ModelName}->VirtualFieldActivated();
+
+		//DEFINE LAYOUT, LIMIT AND OPERAND
+		$viewpage			=	empty($this->params['named']['limit']) ? 50 : $this->params['named']['limit'];
+		$order				=	array("{$this->ModelName}.created" => "DESC");
+		$operand			=	"AND";
+
+		//DEFINE SEARCH DATA
+		if(!empty($this->request->data))
+		{
+			$cond_search	=	array();
+			$operand		=	$this->request->data[$this->ModelName]['operator'];
+			$this->Session->delete('Search.'.$this->ControllerName);
+
+			if(!empty($this->request->data['Search']['start_date'])) {
+				if(!empty($this->request->data['Search']['end_date'])) {
+
+
+					$startDateExplode = explode("-", $this->request->data['Search']['start_date']);
+					$startTime = date("Y-m-d H:i:s", mktime(3, 0, 0, $startDateExplode[1], $startDateExplode[2] ,$startDateExplode[0]));
+
+					$endDateExplode = explode("-", $this->request->data['Search']['end_date']);
+					$endTime = date("Y-m-d H:i:s", mktime(2, 59, 59, $endDateExplode[1], 1 + $endDateExplode[2], $endDateExplode[0]));
+
+					$cond_search["and"] = array("Customer.created >=" => $startTime, "Customer.created <=" => $endTime);
+				} else {
+
+					$startDateExplode = explode("-", $this->request->data['Search']['start_date']);
+					$startTime = date("Y-m-d H:i:s", mktime(3, 0, 0, $startDateExplode[1], $startDateExplode[2] ,$startDateExplode[0]));
+
+					$endDateExplode = explode("-", $this->request->data['Search']['start_date']);
+					$endTime = date("Y-m-d H:i:s", mktime(2, 59, 59, $endDateExplode[1], $endDateExplode[2] + 1 ,$endDateExplode[0]));
+
+					$cond_search["and"] = array("Customer.created >=" => $startTime, "Customer.created <=" => $endTime);
+				}
+			}
+
+			if(!empty($this->request->data['Search']['name']))
+			{
+				$cond_search["{$this->ModelName}.name LIKE "]			=	"%".$this->data['Search']['name']."%";
+			}
+			if(!empty($this->request->data['Search']['email']))
+			{
+				$cond_search["{$this->ModelName}.email LIKE "]			=	"%".$this->data['Search']['email']."%";
+			}
+
+			if(!empty($this->request->data['Search']['customer_email_status_id']))
+			{
+				$cond_search["{$this->ModelName}.customer_email_status_id"]				=	$this->data['Search']['customer_email_status_id'];
+			}
+
+			if($this->request->data["Search"]['reset']=="0")
+			{
+				$this->Session->write("Search.".$this->ControllerName,$cond_search);
+				$this->Session->write('Search.'.$this->ControllerName.'Operand',$operand);
+			}
+		}
+
+		$this->Session->write('Search.'.$this->ControllerName.'Viewpage',$viewpage);
+		$this->Session->write('Search.'.$this->ControllerName.'Sort',(empty($this->params['named']['sort']) or !isset($this->params['named']['sort'])) ? $order : $this->params['named']['sort']." ".$this->params['named']['direction']);
+
+		$cond_search		=	array();
+		$filter_paginate	=	array("{$this->ModelName}.productstatus_id" => 1, "{$this->ModelName}.sold" => 0);
+		$this->paginate		=	array(
+									"{$this->ModelName}"	=>	array(
+										"order"				=>	$order,
+										'limit'				=>	$viewpage,
+										"recursive" 	=> 1,
+										'group'				=> array('Product.id')
+									)
+								);
+
+		$ses_cond			=	$this->Session->read("Search.".$this->ControllerName);
+		$cond_search		=	isset($ses_cond) ? $ses_cond : array();
+		$ses_operand		=	$this->Session->read("Search.".$this->ControllerName."Operand");
+		$operand			=	isset($ses_operand) ? $ses_operand : "AND";
+		$merge_cond			=	empty($cond_search) ? $filter_paginate : array_merge($filter_paginate,array($operand => $cond_search) );
+		$data				=	$this->paginate("{$this->ModelName}",$merge_cond);
+		debug($data);
+
+		$this->Session->write('Search.'.$this->ControllerName.'Conditions',$merge_cond);
+
+		if(isset($this->params['named']['page']) && $this->params['named']['page'] > $this->params['paging'][$this->ModelName]['pageCount'])
+		{
+			$this->params['named']['page']	=	$this->params['paging'][$this->ModelName]['pageCount'];
+		}
+		$page				=	empty($this->params['named']['page']) ? 1 : $this->params['named']['page'];
+		$this->Session->write('Search.'.$this->ControllerName.'Page',$page);
+		$this->set(compact('data','page','viewpage'));
+	}
+
 	function Edit($ID=NULL,$page=1,$viewpage=50)
 	{
 		if(($ID == $this->super_admin_id && $this->profile["Admin"]["id"] != $this->super_admin_id) or $this->access[$this->aco_id]["_update"] != "1")
