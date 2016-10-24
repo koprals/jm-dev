@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/toi/!svn/ver/8/frontend/app/vendors/swift/Swift/Authenticator
+END
+PLAIN.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/toi/!svn/ver/8/frontend/app/vendors/swift/Swift/Authenticator/PLAIN.php
+END
+@PopB4Smtp.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/toi/!svn/ver/8/frontend/app/vendors/swift/Swift/Authenticator/@PopB4Smtp.php
+END
+CRAMMD5.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/toi/!svn/ver/8/frontend/app/vendors/swift/Swift/Authenticator/CRAMMD5.php
+END
+LOGIN.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/toi/!svn/ver/8/frontend/app/vendors/swift/Swift/Authenticator/LOGIN.php
+END

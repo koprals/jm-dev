@@ -1,0 +1,1 @@
+<?php echo $this->requestAction("/Iklan/CacheDetail/{$id}",array("return"))?>

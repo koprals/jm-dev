@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/repos/toi/!svn/ver/8/frontend/app/vendors/swift/Swift/Events
+END
+ListenerMapper.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/toi/!svn/ver/8/frontend/app/vendors/swift/Swift/Events/ListenerMapper.php
+END
+ConnectEvent.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/toi/!svn/ver/8/frontend/app/vendors/swift/Swift/Events/ConnectEvent.php
+END
+DisconnectEvent.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/toi/!svn/ver/8/frontend/app/vendors/swift/Swift/Events/DisconnectEvent.php
+END
+SendEvent.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/toi/!svn/ver/8/frontend/app/vendors/swift/Swift/Events/SendEvent.php
+END
+ConnectListener.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/toi/!svn/ver/8/frontend/app/vendors/swift/Swift/Events/ConnectListener.php
+END
+DisconnectListener.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/toi/!svn/ver/8/frontend/app/vendors/swift/Swift/Events/DisconnectListener.php
+END
+SendListener.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/toi/!svn/ver/8/frontend/app/vendors/swift/Swift/Events/SendListener.php
+END
+CommandEvent.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/toi/!svn/ver/8/frontend/app/vendors/swift/Swift/Events/CommandEvent.php
+END
+ResponseEvent.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/toi/!svn/ver/8/frontend/app/vendors/swift/Swift/Events/ResponseEvent.php
+END
+BeforeSendListener.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/toi/!svn/ver/8/frontend/app/vendors/swift/Swift/Events/BeforeSendListener.php
+END
+CommandListener.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/toi/!svn/ver/8/frontend/app/vendors/swift/Swift/Events/CommandListener.php
+END
+ResponseListener.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/toi/!svn/ver/8/frontend/app/vendors/swift/Swift/Events/ResponseListener.php
+END
+Listener.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/toi/!svn/ver/8/frontend/app/vendors/swift/Swift/Events/Listener.php
+END
+BeforeCommandListener.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/toi/!svn/ver/8/frontend/app/vendors/swift/Swift/Events/BeforeCommandListener.php
+END

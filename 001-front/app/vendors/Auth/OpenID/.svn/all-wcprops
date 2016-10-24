@@ -1,0 +1,191 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/OpenID
+END
+URINorm.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/OpenID/URINorm.php
+END
+ca-bundle.crt
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/OpenID/ca-bundle.crt
+END
+FileStore.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/OpenID/FileStore.php
+END
+Interface.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/OpenID/Interface.php
+END
+MDB2Store.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/OpenID/MDB2Store.php
+END
+google_discovery.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/OpenID/google_discovery.php
+END
+KVForm.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/OpenID/KVForm.php
+END
+BigMath.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/OpenID/BigMath.php
+END
+SQLStore.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/OpenID/SQLStore.php
+END
+Extension.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/OpenID/Extension.php
+END
+SQLiteStore.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/OpenID/SQLiteStore.php
+END
+Discover.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/OpenID/Discover.php
+END
+ServerRequest.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/OpenID/ServerRequest.php
+END
+PostgreSQLStore.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/OpenID/PostgreSQLStore.php
+END
+MemcachedStore.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/OpenID/MemcachedStore.php
+END
+Message.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/OpenID/Message.php
+END
+DatabaseConnection.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/OpenID/DatabaseConnection.php
+END
+PAPE.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/OpenID/PAPE.php
+END
+Consumer.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/OpenID/Consumer.php
+END
+CryptUtil.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/OpenID/CryptUtil.php
+END
+SReg.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/OpenID/SReg.php
+END
+Nonce.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/OpenID/Nonce.php
+END
+DumbStore.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/OpenID/DumbStore.php
+END
+Server.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/OpenID/Server.php
+END
+HMAC.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/OpenID/HMAC.php
+END
+AX.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/OpenID/AX.php
+END
+Parse.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/OpenID/Parse.php
+END
+Association.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/OpenID/Association.php
+END
+MySQLStore.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/OpenID/MySQLStore.php
+END
+TrustRoot.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/OpenID/TrustRoot.php
+END
+DiffieHellman.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/OpenID/DiffieHellman.php
+END

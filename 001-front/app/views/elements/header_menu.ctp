@@ -1,0 +1,1 @@
+<?php echo $this->requestAction("/Template/HeaderMenu/{$current_menu}",array("return"))?>

@@ -1,0 +1,1 @@
+<?php echo $this->requestAction("/Home/Carousel/".$category_name,array("return"))?>

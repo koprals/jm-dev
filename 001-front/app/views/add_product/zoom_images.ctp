@@ -1,0 +1,1 @@
+<img src="<?php echo $settings['showimages_url']?>?filename=<?php echo $filename?>&code=<?php echo $profile['User']['id']?>&prefix=_zoom_small&content=TmpProduct&w=300&h=300">
