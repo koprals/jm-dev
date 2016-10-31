@@ -43,8 +43,8 @@
 </script>
 
 <!-- START BLOCK CSS -->
-<?PHP echo $html->css('style_JM')?>
-<?PHP echo $html->css('edit_aby')?>
+<?PHP echo $html->css('home')?>
+<?PHP echo $html->css('custom')?>
 <?php echo $html->css("prettyPhoto")?>
 <!-- END BLOCK CSS -->
 
