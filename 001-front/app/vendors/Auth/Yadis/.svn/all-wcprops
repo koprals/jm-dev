@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/Yadis
+END
+Yadis.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/Yadis/Yadis.php
+END
+Manager.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/Yadis/Manager.php
+END
+Misc.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/Yadis/Misc.php
+END
+XRIRes.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/Yadis/XRIRes.php
+END
+ParanoidHTTPFetcher.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/Yadis/ParanoidHTTPFetcher.php
+END
+ParseHTML.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/Yadis/ParseHTML.php
+END
+HTTPFetcher.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/Yadis/HTTPFetcher.php
+END
+XML.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/Yadis/XML.php
+END
+XRDS.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/Yadis/XRDS.php
+END
+XRI.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/Yadis/XRI.php
+END
+PlainHTTPFetcher.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/Yadis/PlainHTTPFetcher.php
+END
+Email.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/toi/!svn/ver/8/frontend/app/vendors/Auth/Yadis/Email.php
+END

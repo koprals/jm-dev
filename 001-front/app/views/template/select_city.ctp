@@ -1,0 +1,1 @@
+<?php echo $form->select("$model.city",$city,$current,array("style"=>$style,"class"=>$class,"label"=>"false","escape"=>false,"empty"=>false));?>
